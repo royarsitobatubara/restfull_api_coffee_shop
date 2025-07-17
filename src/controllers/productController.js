@@ -3,21 +3,27 @@ import { sendError, sendSuccess } from "../utils/response.js";
 
 export async function getAllProduct(req, res) {
     try {
-        const product = await productModels.getAllProduct();
+        const limit = parseInt(req.query.limit) || 50;
+        const offset = parseInt(req.query.offset) || 0;
+
+        const result = await productModels.getAllProduct({ limit, offset });
+
         return sendSuccess({
             res,
-            message: "Produk berhasil di temukan",
-            data: product
+            message: "Produk berhasil diambil",
+            data: result.data,
+            total: result.total
         });
     } catch (error) {
         return sendError({
             res,
-            message: "Terjadi kesalahan saat mengambil product",
+            message: "Terjadi kesalahan saat mengambil produk",
             errors: error.message,
             status: 500
         });
     }
 }
+
 
 export async function getProductByID(req, res) {
     try {

@@ -4,7 +4,7 @@ import fs from "fs";
 import path from "path";
 
 export const getAllProduct = async() => {
-    const sql = "SELECT * FROM products";
+    const sql = "SELECT idproduct, name, price, stock, category, image FROM products";
     const [rows] = await pool.query(sql);
     return rows;
 };
