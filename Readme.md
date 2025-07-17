@@ -1,39 +1,44 @@
-# Coffee Shop App (Backend)
+# ☕ Coffee Shop Backend API
 
-Backend API for Coffee Shop App using Node.js, Express, and MySQL.
+A backend RESTful API for managing a Coffee Shop app using **Node.js**, **Express.js**, and **MySQL**.
 
-## Features
-- User authentication (JWT)
-- CRUD products
-- Order management
-- Role-based access (admin, user)
+---
 
-## Tech Stack
-- Node.js
-- Express.js
-- MySQL
+## 📋 Features
 
-## Installation
+- ✅ **User Authentication** (JWT)
+- ✅ **CRUD Product Management**
+- ✅ **Order Management**
+- ✅ **Role-based Access Control** (Admin & User)
+- ✅ **Image Upload Support** (with Multer)
 
-## Library
-- express
-- mysql2
-- uuid
-- multer
-- jsonwebtoken
-- nodemon
-- bcrypt
-- cors
-- dotenv
+---
 
-## Query SQL
-CREATE TABLE users (
-    iduser VARCHAR(50) PRIMARY KEY,
-    username VARCHAR(50),
-    email VARCHAR(50) UNIQUE,
-    phone VARCHAR(50) UNIQUE,
-    password VARCHAR(100),
-    role ENUM('user', 'admin') DEFAULT 'user',
-    photo VARCHAR(255) NULL,
-    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP
-);
+## 🚀 Tech Stack
+
+- **Node.js**
+- **Express.js**
+- **MySQL**
+- **Multer** (File Upload)
+- **JWT (jsonwebtoken)** (Authentication)
+- **bcrypt** (Password Hashing)
+- **CORS**
+- **dotenv**
+- **redis**
+
+---
+
+## ⚙️ Installation
+
+```bash
+# Clone repository
+git clone https://github.com/royarsitobatubara/restfull_api_coffee_shop.git
+
+# Install dependencies
+npm install
+
+# Setup environment variables
+cp .env.example .env
+
+# Start server (development)
+npm run dev

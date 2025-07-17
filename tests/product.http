@@ -1,0 +1,48 @@
+# ============================
+# Product APIs
+# ============================
+
+### [GET] Get All Product
+GET http://localhost:3000/api/product/
+Content-Type: application/json
+Accept: application/json
+
+###
+
+### [GET] Get All Product By ID
+GET http://localhost:3000/api/product/:id
+Content-Type: application/json
+Accept: application/json
+
+###
+
+### [POST] Insert Product
+POST  http://localhost:3000/api/product
+Content-Type: multipart/form-data
+
+name=
+price=
+descriptiom=
+stock=
+category=
+image=
+
+###
+
+### [DELETE] Delete Product By ID
+DELETE http://localhost:3000/api/product/:id
+Content-Type: application/json
+Accept: application/json
+
+###
+
+### [PATCH] Update Product By ID
+PATCH   http://localhost:3000/api/product/:id
+Content-Type: multipart/form-data
+
+name=
+price=
+descriptiom=
+stock=
+category=
+image=
