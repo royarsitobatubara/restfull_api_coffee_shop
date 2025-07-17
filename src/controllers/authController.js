@@ -5,6 +5,9 @@ import jwt from "jsonwebtoken";
 
 export async function login(req, res) {
     try {
+        if(!req.body){
+            return sendError({ res, message: "Email dan password di perlukan", status: 404 });
+        }
         const user = await authModels.login(req.body);
         if (!user) {
             return sendError({ res, message: "Email tidak ditemukan", status: 401 });

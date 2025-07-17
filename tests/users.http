@@ -1,0 +1,68 @@
+# ============================
+# User APIs
+# ============================
+
+### [GET] Get All User
+GET http://localhost:3000/api/user
+Content-Type: application/json
+Accept: application/json
+
+###
+
+### [GET] Get User By ID
+GET  http://localhost:3000/api/user/:id
+Content-Type: application/json
+Accept: application/json
+
+###
+
+
+### [POST] Insert User
+POST http://localhost:3000/api/user
+Content-Type: multipart/form-data
+
+username=someone
+email=someone@gmail.com
+password=12345
+phone=081122223333
+role=user
+photo=@./gambar/foto1.jpg
+
+
+###
+
+### [PATCH] Patch Update User By ID
+PATCH  http://localhost:3000/api/user/:id
+Content-Type: application/json
+Accept: application/json
+
+{
+    "username": "",
+    "email": "",
+    "password": "admin123",
+    "phone": "",
+    "role": "admin"
+}
+
+###
+
+### [DELETE] Delete User By ID
+DELETE http://localhost:3000/api/user/:id
+Content-Type: application/json
+Accept: application/json
+
+###
+
+### [PUT] Update photo user By ID
+PUT  http://localhost:3000/api/user/:id/photo
+Content-Type: multipart/form-data
+
+photo=C:\Users\Lenovo\Pictures\Screenshots
+
+###
+
+### [DELETE] Delete photo user By ID
+DELETE   http://localhost:3000/api/user/:id/photo
+Content-Type: application/json
+
+photo=C:\Users\Lenovo\Pictures\Screenshots

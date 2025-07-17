@@ -1,0 +1,28 @@
+# ============================
+# Auth APIs
+# ============================
+
+### [POST] Post Login
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email": "admin@gmail.com",
+    "password": "admin123"
+}
+
+###
+
+### [POST] Post Register
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+Accept: application/json
+
+{
+    "iduser": "adasd",
+    "username": "a",
+    "email": "a@gmail.com",
+    "password": "a",
+    "phone": "1"
+}

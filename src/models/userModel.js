@@ -2,9 +2,10 @@ import pool from "../config/db.js";
 import generateUUID from "../utils/uuid.js";
 import fs from "fs";
 import path from "path";
+import bcrypt from "bcrypt"
 
 export const getAllUser = async () => {
-    const sql = "SELECT iduser, username, email, phone, role, photo, createdAt FROM users";
+    const sql = "SELECT iduser, username, email, password, phone, role, photo, createdAt FROM users";
     const [rows] = await pool.query(sql);
     return rows;
 };
@@ -44,14 +45,15 @@ export const insertUser = async ({ data, file }) => {
         return false;
     }
     const insertSql = `
-        INSERT INTO users (iduser, username, email, password, photo)
-        VALUES (?, ?, ?, ?, ?)
+        INSERT INTO users (iduser, username, email, password, role, photo)
+        VALUES (?, ?, ?, ?, ?, ?)
     `;
     const [result] = await pool.query(insertSql, [
         id,
         data.username,
         data.email,
         data.password,
+        data.role,
         file?.filename || null
     ]);
 
@@ -72,6 +74,11 @@ export const updateUser = async ({ id, data }) => {
     if (data.phone) {
         fields.push("phone = ?");
         values.push(data.phone);
+    }
+    if(data.password){
+        fields.push("password = ?");
+        const passwordHash = await bcrypt.hash(data.password, 10);
+        values.push(passwordHash);
     }
     if (data.role) {
         fields.push("role = ?");

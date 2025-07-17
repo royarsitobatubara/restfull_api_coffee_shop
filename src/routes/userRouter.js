@@ -10,6 +10,6 @@ userRouter.delete('/:id', userControll.deleteUser);
 userRouter.post('/', upload.single("photo"), userControll.insertUser);
 userRouter.patch('/:id', userControll.updateUser);
 userRouter.put('/:id/photo', upload.single("photo"),userControll.updatePhotoUser);
-userRouter.delete("/:id/photo", upload.single("photo"),userControll.deletePhotoUser);
+userRouter.delete("/:id/photo",userControll.deletePhotoUser);
 
 export default userRouter;
